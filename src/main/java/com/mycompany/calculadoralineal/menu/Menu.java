@@ -11,6 +11,7 @@ public class Menu {
         
         System.out.println("1. Calcular magnitud de un Vector(2D)");
         System.out.println("2. Calcular angulo teta de un Vector(2D)");
+        System.out.println("3. Calcular matriz inversa");
         System.out.println("Tu eleccion: ");
     }
 }
