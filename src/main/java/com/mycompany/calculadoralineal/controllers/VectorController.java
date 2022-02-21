@@ -2,11 +2,11 @@ package com.mycompany.calculadoralineal.controllers;
 
 import java.util.Scanner;
 import java.util.Locale;
-import com.mycompany.calculadoralineal.modelos.CalcularVectores;
+import com.mycompany.calculadoralineal.modelos.Vectores;
 
 public class VectorController {
 
-    CalcularVectores calcularMagnitud;
+    Vectores calcularMagnitud;
 
     public void pedirDatos(Scanner input) {
         double x, y;
@@ -15,7 +15,7 @@ public class VectorController {
         x = input.nextDouble();
         System.out.println("Ingrese el valor del eje Y:");
         y = input.nextDouble();
-        calcularMagnitud = new CalcularVectores(x, y);
+        calcularMagnitud = new Vectores(x, y);
     }
 
     public void mostrarResultadoMagnitud() {

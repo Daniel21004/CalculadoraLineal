@@ -44,6 +44,7 @@ public abstract class Matriz {
     
     public double pedirValores(int fila, int columna) {
         System.out.println("Inserte un valor para la matriz A en la posicion ["+fila+"]["+columna+"]");
+        //System.out.format("Inserte un valor para la matriz A en la posicion [%d][%d]", fila,columna);
         valor = input.nextDouble();
         return valor;
     }

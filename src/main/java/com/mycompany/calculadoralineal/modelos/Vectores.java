@@ -1,11 +1,11 @@
 package com.mycompany.calculadoralineal.modelos;
 
 
-public class CalcularVectores {
+public class Vectores {
     
     private double x,y, result, resultDegrees;
 
-    public CalcularVectores(double _x, double _y){
+    public Vectores(double _x, double _y){
         x = _x;
         y = _y;
     }
