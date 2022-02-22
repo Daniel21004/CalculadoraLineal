@@ -5,9 +5,11 @@ public class Vectores {
     
     private double x,y, result, resultDegrees;
 
-    public Vectores(double _x, double _y){
-        x = _x;
-        y = _y;
+    public Vectores(double x, double y){
+        this.x = x;
+        this.y = y;
+        calcularMagnitud();
+        calcularTeta();
     }
     
     public void calcularMagnitud(){

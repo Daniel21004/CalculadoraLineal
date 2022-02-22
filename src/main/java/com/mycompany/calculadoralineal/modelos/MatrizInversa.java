@@ -1,44 +1,26 @@
 package com.mycompany.calculadoralineal.modelos;
 
-//import com.mycompany.calculadoralineal.modelos.MatrizIdentidad;
 public class MatrizInversa extends Matriz {
 
-    public double matrizA[][]; //cambiar mas tarde
-    public double matrizUnidad[][]; // cambiar mas tarde
-    //private int dimension;
+    public double matrizA[][];
+    public double matrizUnidad[][]; 
     MatrizIdentidad matrizIdentidad;
 
     public MatrizInversa(int dimension) {
         super(dimension);
         matrizA = generarMatriz();
-        //this.dimension = _dimension;
         matrizIdentidad = new MatrizIdentidad(dimension);
         matrizIdentidad.rellenarMatriz();
-        matrizUnidad = matrizIdentidad.matrizIdentidad; //posiblemente quitar
+        matrizUnidad = matrizIdentidad.matrizIdentidad; 
     }
 
     public void calcularMatrizInversa() {
-        double valorTemp = 0;
-        // boolean posicionIguales;
-
-        /*
-        for (int i = 0; i < super.dimension; i++) {
-            for (int j = 0; j < super.dimension; j++) {
-                posicionIguales = (i == j);
-                if (posicionIguales) {
-                    valorTemp = matrizA[i][j];
-                    dividirFilas(valorTemp, i);
-                    operarColumnas(i);
-                }
-            }
-        }
-         */
+        double valorTemp;
         for (int i = 0; i < super.dimension; i++) {
             valorTemp = matrizA[i][i];
             dividirFilas(valorTemp, i);
             operarFilas(i);
         }
-
     }
 
     public void operarFilas(int filaActual) {
@@ -62,6 +44,7 @@ public class MatrizInversa extends Matriz {
 
     @Override
     public void rellenarMatriz() {
+
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 matrizA[i][j] = pedirValores(i, j);

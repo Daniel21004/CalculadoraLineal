@@ -6,45 +6,40 @@ import com.mycompany.calculadoralineal.modelos.Vectores;
 
 public class VectorController {
 
-    Vectores calcularMagnitud;
+    Vectores vectores;
 
-    public void pedirDatos(Scanner input) {
+    public void pedirDatos(Scanner input){
         double x, y;
         input.useLocale(Locale.US); //Para que pueda ingresar decimales con punto
         System.out.println("Ingrese el valor del eje X:");
         x = input.nextDouble();
         System.out.println("Ingrese el valor del eje Y:");
         y = input.nextDouble();
-        calcularMagnitud = new Vectores(x, y);
+        vectores = new Vectores(x, y);
+        System.out.println("\n");
     }
 
     public void mostrarResultadoMagnitud() {
-
-        calcularMagnitud.calcularMagnitud();
-
         System.out.println("*************************");
         System.out.println("\tRESULTADOS");
         System.out.println("*************************");
 
-        System.out.println("X: " + calcularMagnitud.getX());
-        System.out.println("Y: " + calcularMagnitud.getY());
+        System.out.println("X: " + vectores.getX());
+        System.out.println("Y: " + vectores.getY());
 
-        System.out.println("\n|A|= ¯\\/" + calcularMagnitud.getX() + "² + " + calcularMagnitud.getY() + "² = " + calcularMagnitud.getResult());
+        System.out.println("\n|A|= ¯\\/" + vectores.getX() + "² + " + vectores.getY() + "² = " + vectores.getResult());
     }
 
     public void mostrarResultadoAnguloTeta() {
-
-        calcularMagnitud.calcularTeta();
-
         System.out.println("*************************");
         System.out.println("\tRESULTADOS");
         System.out.println("*************************");
 
-        System.out.println("X: " + calcularMagnitud.getX());
-        System.out.println("Y: " + calcularMagnitud.getY());
+        System.out.println("X: " + vectores.getX());
+        System.out.println("Y: " + vectores.getY());
 
-        System.out.println("\nRadianes = (" + calcularMagnitud.getY() + "/" + calcularMagnitud.getX() + ") = " + calcularMagnitud.getResult() + " rad");
-        System.out.println("Angulo = (" + calcularMagnitud.getY() + "/" + calcularMagnitud.getX() + ") = " + calcularMagnitud.getResultDegrees() + " grados");
+        System.out.println("\nRadianes = (" + vectores.getY() + "/" + vectores.getX() + ") = " + vectores.getResult() + " rad");
+        System.out.println("Angulo = (" + vectores.getY() + "/" + vectores.getX() + ") = " + vectores.getResultDegrees() + " grados");
     }
 
 }

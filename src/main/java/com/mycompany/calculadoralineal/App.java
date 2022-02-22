@@ -3,7 +3,6 @@ package com.mycompany.calculadoralineal;
 import com.mycompany.calculadoralineal.menu.Menu;
 import com.mycompany.calculadoralineal.controllers.*;
 
-import com.mycompany.calculadoralineal.modelos.MatrizInversa;
 import java.util.Scanner;
 
 public class App {
@@ -15,14 +14,11 @@ public class App {
         MatrizController newMatrizController;
         VectorController newVectorController = new VectorController();
         int option;
-        
 
         //Menu
         newMenu.mostrarMenu();
-        option = input.nextInt();
-
         
-        switch (option) {
+        switch (newMenu.retornarEleccion(input)) {
             case 1:
                 newVectorController.pedirDatos(input);
                 newVectorController.mostrarResultadoMagnitud();
@@ -33,9 +29,7 @@ public class App {
                 break;
             case 3:
                 newMatrizController = new MatrizController();
-                newMatrizController.presentarMatriz();
-                break;
+                break;  
         }
-         
     }
 }

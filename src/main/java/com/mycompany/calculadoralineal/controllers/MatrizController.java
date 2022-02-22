@@ -18,6 +18,7 @@ public class MatrizController {
         System.out.println("\nIngrese la dimension de la matriz:");
         dimension = input.nextInt();
         input.nextLine();
+        System.out.println("\n");
     }
 
     public void verificarDimensiones() {
@@ -25,6 +26,7 @@ public class MatrizController {
             inicializarMatriz();
         } else {
             System.out.println("Las dimensiones que se ha ingresado son invalidas.\nSolo se aceptan matrices de dimension 2 y 3, por favor vuelva a intentarlo");
+            System.out.println("");
             dimension = 0;
         }
     }
@@ -32,15 +34,18 @@ public class MatrizController {
     public void inicializarMatriz() {
         newMatrizInversa = new MatrizInversa(dimension);
         newMatrizInversa.rellenarMatriz();
+        presentarMatriz(newMatrizInversa.matrizA, "A");
         newMatrizInversa.calcularMatrizInversa();
+        presentarMatriz(newMatrizInversa.matrizUnidad, "Inversa");
     }
 
-    public void presentarMatriz() {
+    public void presentarMatriz(double[][] matriz, String id) {
+        System.out.println("\nMatriz " + id);
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
-                System.out.format("[%f] ", newMatrizInversa.matrizUnidad[i][j]);
+                System.out.format("[%.2f]   ", matriz[i][j]);
             }
-            System.out.println("\n");
+            System.out.println("");
         }
     }
 }
