@@ -1,4 +1,4 @@
-package com.mycompany.calculadoralineal.menu;
+package com.mycompany.calculadoralineal.views;
 
 import java.util.Scanner;
 

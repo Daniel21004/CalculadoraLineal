@@ -13,13 +13,13 @@ public abstract class Matriz {
         this.dimension = _dimension;
     }
 
-    public double[][] generarMatriz() {
+    protected double[][] generarMatriz() {
         return new double[dimension][dimension];
     }
 
-    public abstract void rellenarMatriz();
+    protected abstract void rellenarMatriz();
     
-    public double pedirValores(int fila, int columna) {
+    protected double pedirValores(int fila, int columna) {
         input.useLocale(Locale.ENGLISH);
         System.out.println("Inserte un valor para la matriz A en la posicion ["+fila+"]["+columna+"]");
         valor = input.nextDouble();

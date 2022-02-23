@@ -1,6 +1,6 @@
 package com.mycompany.calculadoralineal;
 
-import com.mycompany.calculadoralineal.menu.Menu;
+import com.mycompany.calculadoralineal.views.Menu;
 import com.mycompany.calculadoralineal.controllers.*;
 
 import java.util.Scanner;
@@ -11,14 +11,15 @@ public class App {
         // Inicializacion
         Scanner input = new Scanner(System.in);
         Menu newMenu = new Menu();
-        MatrizController newMatrizController;
+        MatrizController matrizController;
         VectorController newVectorController = new VectorController();
         int option;
 
         //Menu
         newMenu.mostrarMenu();
-        
-        switch (newMenu.retornarEleccion(input)) {
+        option = newMenu.retornarEleccion(input);
+
+        switch (option) {
             case 1:
                 newVectorController.pedirDatos(input);
                 newVectorController.mostrarResultadoMagnitud();
@@ -28,8 +29,10 @@ public class App {
                 newVectorController.mostrarResultadoAnguloTeta();
                 break;
             case 3:
-                newMatrizController = new MatrizController();
-                break;  
+                matrizController = new MatrizController();
+                break;
+            default:
+                throw new AssertionError("La opcion que has elegido no se encuentra disponible\n");
         }
     }
 }

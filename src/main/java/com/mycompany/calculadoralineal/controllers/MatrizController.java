@@ -1,27 +1,25 @@
 package com.mycompany.calculadoralineal.controllers;
 
-import java.util.Scanner;
 import com.mycompany.calculadoralineal.modelos.MatrizInversa;
+import com.mycompany.calculadoralineal.views.ResultsMatriz;
 
 public class MatrizController {
 
     private int dimension;
     MatrizInversa newMatrizInversa;
-    Scanner input = new Scanner(System.in);
+    ResultsMatriz matrices = new ResultsMatriz();
 
     public MatrizController() {
-        pedirDimension();
+        this.dimension = matrices.pedirDimension();
         verificarDimensiones();
+        matrices.presentarMatriz(newMatrizInversa.getMatrizA(), "A");
+        newMatrizInversa.calcularMatrizInversa();
+        matrices.presentarMatriz(newMatrizInversa.getMatrizUnidad(), "Inversa");
     }
+    
+    
 
-    public void pedirDimension() {
-        System.out.println("\nIngrese la dimension de la matriz:");
-        dimension = input.nextInt();
-        input.nextLine();
-        System.out.println("\n");
-    }
-
-    public void verificarDimensiones() {
+    private void verificarDimensiones() {
         if (dimension == 2 || dimension == 3) {
             inicializarMatriz();
         } else {
@@ -31,21 +29,8 @@ public class MatrizController {
         }
     }
 
-    public void inicializarMatriz() {
+    private void inicializarMatriz() {
         newMatrizInversa = new MatrizInversa(dimension);
         newMatrizInversa.rellenarMatriz();
-        presentarMatriz(newMatrizInversa.matrizA, "A");
-        newMatrizInversa.calcularMatrizInversa();
-        presentarMatriz(newMatrizInversa.matrizUnidad, "Inversa");
-    }
-
-    public void presentarMatriz(double[][] matriz, String id) {
-        System.out.println("\nMatriz " + id);
-        for (int i = 0; i < dimension; i++) {
-            for (int j = 0; j < dimension; j++) {
-                System.out.format("[%.2f]   ", matriz[i][j]);
-            }
-            System.out.println("");
-        }
     }
 }

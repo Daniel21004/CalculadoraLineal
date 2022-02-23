@@ -2,16 +2,16 @@ package com.mycompany.calculadoralineal.modelos;
 
 public class MatrizInversa extends Matriz {
 
-    public double matrizA[][];
-    public double matrizUnidad[][]; 
-    MatrizIdentidad matrizIdentidad;
+    private double matrizA[][];
+    private double matrizUnidad[][];
+    private MatrizIdentidad matrizIdentidad;
 
     public MatrizInversa(int dimension) {
         super(dimension);
         matrizA = generarMatriz();
         matrizIdentidad = new MatrizIdentidad(dimension);
         matrizIdentidad.rellenarMatriz();
-        matrizUnidad = matrizIdentidad.matrizIdentidad; 
+        matrizUnidad = matrizIdentidad.matrizIdentidad;
     }
 
     public void calcularMatrizInversa() {
@@ -23,7 +23,7 @@ public class MatrizInversa extends Matriz {
         }
     }
 
-    public void operarFilas(int filaActual) {
+    private void operarFilas(int filaActual) {
         for (int i = 0; i < super.dimension; i++) {
             double temp = matrizA[i][filaActual];
             for (int j = 0; j < super.dimension; j++) {
@@ -35,11 +35,19 @@ public class MatrizInversa extends Matriz {
         }
     }
 
-    public void dividirFilas(double valor, int i) {
+    private void dividirFilas(double valor, int i) {
         for (int j = 0; j < super.dimension; j++) {
             matrizA[i][j] /= valor;
             matrizUnidad[i][j] /= valor;
         }
+    }
+
+    public double[][] getMatrizA() {
+        return matrizA;
+    }
+
+    public double[][] getMatrizUnidad() {
+        return matrizUnidad;
     }
 
     @Override
