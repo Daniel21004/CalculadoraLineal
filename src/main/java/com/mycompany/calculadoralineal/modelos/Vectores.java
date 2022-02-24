@@ -11,11 +11,11 @@ public class Vectores {
 		calcularTeta();
 	}
 
-	private void calcularMagnitud() {
+	public void calcularMagnitud() {
 		result = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 	}
 
-	private void calcularTeta() {
+	public void calcularTeta() {
 
 		result = Math.atan((y / x));
 	}
