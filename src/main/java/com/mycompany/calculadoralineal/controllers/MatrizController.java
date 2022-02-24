@@ -17,8 +17,6 @@ public class MatrizController {
         matrices.presentarMatriz(newMatrizInversa.getMatrizUnidad(), "Inversa");
     }
     
-    
-
     private void verificarDimensiones() {
         if (dimension == 2 || dimension == 3) {
             inicializarMatriz();
@@ -28,7 +26,6 @@ public class MatrizController {
             dimension = 0;
         }
     }
-
     private void inicializarMatriz() {
         newMatrizInversa = new MatrizInversa(dimension);
         newMatrizInversa.rellenarMatriz();

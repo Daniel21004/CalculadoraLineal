@@ -22,7 +22,6 @@ public class MatrizInversa extends Matriz {
             operarFilas(i);
         }
     }
-
     private void operarFilas(int filaActual) {
         for (int i = 0; i < super.dimension; i++) {
             double temp = matrizA[i][filaActual];
@@ -34,7 +33,6 @@ public class MatrizInversa extends Matriz {
             }
         }
     }
-
     private void dividirFilas(double valor, int i) {
         for (int j = 0; j < super.dimension; j++) {
             matrizA[i][j] /= valor;
@@ -45,14 +43,12 @@ public class MatrizInversa extends Matriz {
     public double[][] getMatrizA() {
         return matrizA;
     }
-
     public double[][] getMatrizUnidad() {
         return matrizUnidad;
     }
 
     @Override
     public void rellenarMatriz() {
-
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {
                 matrizA[i][j] = pedirValores(i, j);
